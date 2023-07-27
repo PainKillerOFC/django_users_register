@@ -58,7 +58,17 @@ def home(request):
     # a função render() procura pela pasta "templates" dentro do app
     return render(request, 'users/home.html')
 ```
- <img src="./diagram.jpg"/>
+**No html que você criar para ser chamado pela view, os botões precisam seguir essa estrutura:**
+```html
+<form action="{% url 'login_check' %}" method="post">
+    {% csrf_token %}
+    <!-- rest of code -->
+</form>
+```
+
+## Banco de dados
+**Diagrama do caminho que a url segue:**
+<img src="./diagram.jpg"/>
 
  **para conversar com SQL, vamos trabalhar no arquivo models.py**
 ```python
@@ -79,6 +89,7 @@ $ python .\manage.py makemigrations
 
 #Criando migração...
 ```
+## Banco de dados
 **Para aplicar essa migração no arquivo db.sqlite3**
 ```powershell
 # powershell
